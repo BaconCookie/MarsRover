@@ -21,10 +21,13 @@ class Plateau:
             return False
 
     def is_valid_position(self, x, y):
-        return self.is_on_plateau(x, y) and self.causes_no_collision(x, y)
+        if isinstance(x, int) and isinstance(y, int):
+            return self.is_on_plateau(x, y) and self.causes_no_collision(x, y)
+        else:
+            return False
 
     def is_on_plateau(self, x, y):
-        return x <= self.max_x and y <= self.max_y and (self.max_x >= 0 or self.max_y >= 0)
+        return 0 <= x <= self.max_x and 0 <= y <= self.max_y and (self.max_x >= 1 or self.max_y >= 1)
 
     def causes_no_collision(self, x, y):
         return [x, y] not in self.currently_occupied_positions
