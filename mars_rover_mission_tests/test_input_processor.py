@@ -60,8 +60,6 @@ class TestInputProcessor(unittest.TestCase):
         expected_y = 2
         expected_heading = 'N'
         actual_x, actual_y, actual_heading = self.input_processor.get_startposition('1 2 N')
-        print(type(expected_x))
-        print(type(actual_x))
         self.assertEqual(expected_x, actual_x)
         self.assertEqual(expected_y, actual_y)
         self.assertEqual(expected_heading, actual_heading)
