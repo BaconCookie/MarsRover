@@ -14,6 +14,27 @@ class TestPlateau(unittest.TestCase):
     def test_plateau_exists(self):
         self.assertIsInstance(self.plateau, Plateau, "Mission class is missing or initiated incorrectly")
 
+    def test_plateau_size_can_be_valid_and_narrow_x0(self):
+        self.assertTrue(Plateau(0, 3))
+
+    def test_plateau_size_can_be_valid_and_narrow_y0(self):
+        self.assertTrue(Plateau(1, 0))
+
+    def test_plateau_size_can_be_valid_and_allow_no_movement_x0_y0(self):
+        self.assertTrue(Plateau(0, 0))
+
+    def test_plateau_size_cannot_be_invalid_negavtive_x(self):
+        self.assertRaises(ValueError, Plateau(-1, 0))
+
+    def test_plateau_size_cannot_be_invalid_negavtive_y(self):
+        self.assertRaises(ValueError, Plateau(0, -3))
+
+    def test_plateau_size_cannot_be_invalid_negavtive_x_and_y(self):
+        self.assertRaises(ValueError, Plateau(-4, -2))
+
+    def test_plateau_size_cannot_be_invalid_floats(self):
+        self.assertRaises(ValueError, Plateau(0.5, 3.7))
+
     def test_add_valid_position_to_currently_occupied_positions(self):
         self.plateau.add_to_currently_occupied_positions(3, 3)
         expected = [[3, 3]]
