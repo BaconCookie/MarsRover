@@ -46,17 +46,54 @@ class TestMarsRover(unittest.TestCase):
         with self.assertRaises(ValueError):
             MarsRover(start_x=x, start_y=y, start_heading='N', instructions='LMLMLMLMM', plateau=self.plateau)
 
-    def test_turn_left(self):
+    def test_turn_left_start_N(self):
         self.mars_rover.turn_left()
         heading_after_turning_left = self.mars_rover.heading
         expected_heading = 'W'
         self.assertEqual(expected_heading, heading_after_turning_left)
 
-    def test_turn_right(self):
+    def test_turn_left_four_times_start_N(self):
+        self.mars_rover.turn_left()
+        heading_after_turning_left = self.mars_rover.heading
+        expected_heading = 'W'
+        self.assertEqual(expected_heading, heading_after_turning_left)
+        self.mars_rover.turn_left()
+        heading_after_turning_left = self.mars_rover.heading
+        expected_heading = 'S'
+        self.assertEqual(expected_heading, heading_after_turning_left)
+        self.mars_rover.turn_left()
+        heading_after_turning_left = self.mars_rover.heading
+        expected_heading = 'E'
+        self.assertEqual(expected_heading, heading_after_turning_left)
+        self.mars_rover.turn_left()
+        heading_after_turning_left = self.mars_rover.heading
+        expected_heading = 'N'
+        self.assertEqual(expected_heading, heading_after_turning_left)
+
+    def test_turn_right_start_N(self):
         self.mars_rover.turn_right()
         heading_after_turning_left = self.mars_rover.heading
         expected_heading = 'E'
         self.assertEqual(expected_heading, heading_after_turning_left)
+
+    def test_turn_right_four_times_start_N(self):
+        self.mars_rover.turn_right()
+        heading_after_turning_left = self.mars_rover.heading
+        expected_heading = 'E'
+        self.assertEqual(expected_heading, heading_after_turning_left)
+        self.mars_rover.turn_right()
+        heading_after_turning_left = self.mars_rover.heading
+        expected_heading = 'S'
+        self.assertEqual(expected_heading, heading_after_turning_left)
+        self.mars_rover.turn_right()
+        heading_after_turning_left = self.mars_rover.heading
+        expected_heading = 'W'
+        self.assertEqual(expected_heading, heading_after_turning_left)
+        self.mars_rover.turn_right()
+        heading_after_turning_left = self.mars_rover.heading
+        expected_heading = 'N'
+        self.assertEqual(expected_heading, heading_after_turning_left)
+
 
     def test_move_to_valid_position_North(self):
         mars_rover_heading_north = MarsRover(start_x=3, start_y=3, start_heading='N', instructions='LMLMLMLMM',
