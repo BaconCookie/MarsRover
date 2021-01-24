@@ -69,27 +69,6 @@ class TestInputProcessor(unittest.TestCase):
         invalid_heading = 'X'
         self.assertFalse(self.input_processor.is_valid_heading(invalid_heading))
 
-    def test_startposition_invalid_already_occupied(self):
-        pass
-
-    def test_startposition_invalid_x_too_large_not_on_plateau(self):
-        pass
-
-    def test_startposition_invalid_y_too_large_not_on_plateau(self):
-        pass
-
-    def test_startposition_invalid_x_and_y_too_large_not_on_plateau(self):
-        pass
-
-    def test_startposition_invalid_x_neg_not_on_plateau(self):
-        pass
-
-    def test_startposition_invalid_y_neg_not_on_plateau(self):
-        pass
-
-    def test_startposition_invalid_x_and_y_neg_not_on_plateau(self):
-        pass
-
     def test_valid_instructions(self):
         valid_instructions1 = ''
         valid_instructions2 = 'L'
