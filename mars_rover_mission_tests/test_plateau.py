@@ -23,7 +23,7 @@ class TestPlateau(unittest.TestCase):
     def test_plateau_size_can_be_valid_and_allow_no_movement_x0_y0(self):
         self.assertTrue(Plateau(0, 0))
 
-    def test_plateau_size_cannot_be_invalid_negavtive_x(self):
+    def test_plateau_size_cannot_be_invalid_negative_x(self):
         x = -1
         y = 5
         with self.assertRaises(ValueError):
