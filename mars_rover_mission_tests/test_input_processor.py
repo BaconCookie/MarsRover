@@ -64,7 +64,6 @@ class TestInputProcessor(unittest.TestCase):
         self.assertEqual(expected_y, actual_y)
         self.assertEqual(expected_heading, actual_heading)
 
-
     def test_heading_is_valid(self):
         valid_heading = 'N'
         self.assertTrue(self.input_processor.is_valid_heading(valid_heading))
@@ -80,6 +79,12 @@ class TestInputProcessor(unittest.TestCase):
         valid_instructions4 = 'M'
         valid_instructions5 = 'LRM'
         valid_instructions6 = 'LMRRMLLLMMMRR'
+        self.assertTrue(self.input_processor.validate_instructions(valid_instructions1))
+        self.assertTrue(self.input_processor.validate_instructions(valid_instructions2))
+        self.assertTrue(self.input_processor.validate_instructions(valid_instructions3))
+        self.assertTrue(self.input_processor.validate_instructions(valid_instructions4))
+        self.assertTrue(self.input_processor.validate_instructions(valid_instructions5))
+        self.assertTrue(self.input_processor.validate_instructions(valid_instructions6))
 
     def test_invalid_instructions_raise_value_error(self):
         invalid_instructions1 = 'X'
@@ -91,6 +96,16 @@ class TestInputProcessor(unittest.TestCase):
         invalid_instructions7 = '1'
         invalid_instructions8 = 'None'
         invalid_instructions9 = None
+        with self.assertRaises(ValueError):
+            self.input_processor.validate_instructions(invalid_instructions1)
+            self.input_processor.validate_instructions(invalid_instructions2)
+            self.input_processor.validate_instructions(invalid_instructions3)
+            self.input_processor.validate_instructions(invalid_instructions4)
+            self.input_processor.validate_instructions(invalid_instructions5)
+            self.input_processor.validate_instructions(invalid_instructions6)
+            self.input_processor.validate_instructions(invalid_instructions7)
+            self.input_processor.validate_instructions(invalid_instructions8)
+            self.input_processor.validate_instructions(invalid_instructions9)
 
 
 if __name__ == '__main__':
