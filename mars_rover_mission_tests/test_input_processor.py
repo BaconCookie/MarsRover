@@ -22,26 +22,30 @@ class TestInputProcessor(unittest.TestCase):
         self.assertEqual(expected_plateau, actual_plateau)
 
     def test_cannot_init_plateau_with_neg_integer_x(self):
-        pass
+        self.assertFalse(self.input_processor.init_plateau('-5 5'))
 
     def test_cannot_init_plateau_with_neg_integer_y(self):
-        pass
+        self.assertFalse(self.input_processor.init_plateau('5 -5'))
 
     def test_cannot_init_plateau_with_neg_integers_x_and_y(self):
-        pass
+        self.assertFalse(self.input_processor.init_plateau('-5 -5'))
 
     def test_cannot_init_plateau_with_floats_x(self):
-        pass
+        self.assertFalse(self.input_processor.init_plateau('1.5 5'))
 
     def test_cannot_init_plateau_with_floats_y(self):
-        pass
+        self.assertFalse(self.input_processor.init_plateau('5 1.5'))
 
     def test_cannot_init_plateau_with_floats_x_and_y(self):
-        pass
+        self.assertFalse(self.input_processor.init_plateau('1.5 5.3'))
 
-    def test_cannot_init_plateau_with_incorrect_format(self):
+    def test_cannot_init_plateau_with_incorrect_format_too_few(self):
         # correct format is a string of two integers separated by a space
-        pass
+        self.assertFalse(self.input_processor.init_plateau('55'))
+
+    def test_cannot_init_plateau_with_incorrect_format_too_many(self):
+        # correct format is a string of two integers separated by a space
+        self.assertFalse(self.input_processor.init_plateau('5 5 5'))
 
     def test_validate_and_get_startposition(self):
         pass
