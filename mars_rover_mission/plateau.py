@@ -37,3 +37,10 @@ class Plateau:
 
     def causes_no_collision(self, x, y):
         return [x, y] not in self.currently_occupied_positions
+
+    def __eq__(self, other):
+        if not isinstance(other, Plateau):
+            # don't attempt to compare against unrelated types
+            return NotImplemented
+
+        return self.max_x == other.max_x and self.max_y == other.max_y and self.currently_occupied_positions == other.currently_occupied_positions
