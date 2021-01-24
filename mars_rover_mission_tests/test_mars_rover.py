@@ -94,7 +94,6 @@ class TestMarsRover(unittest.TestCase):
         expected_heading = 'N'
         self.assertEqual(expected_heading, heading_after_turning_left)
 
-
     def test_move_to_valid_position_North(self):
         mars_rover_heading_north = MarsRover(start_x=3, start_y=3, start_heading='N', instructions='LMLMLMLMM',
                                              plateau=Plateau(5, 5))
