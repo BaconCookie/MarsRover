@@ -1,12 +1,12 @@
 import unittest
 
-from mars_rover_mission.process_input import ProcessInput
+from mars_rover_mission.input_processor import InputProcessor
 
 
-class TestProcessInput(unittest.TestCase):
+class TestInputProcessor(unittest.TestCase):
 
     def setUp(self):
-        self.input_processor = ProcessInput()
+        self.input_processor = InputProcessor()
 
     def tearDown(self):
         self.input_processor = None
