@@ -7,11 +7,15 @@ class InputProcessor:
 
     def init_plateau(self, size):
         # casting raises ValueError if impossible
-        max_x = int(size.split()[0])
-        max_y = int(size.split()[1])
-        self.is_positive_integer(max_x)
-        self.is_positive_integer(max_y)
-        return Plateau(max_x, max_y)
+        if len(size.split()) != 2:
+            raise ValueError
+        else:
+            max_x = int(size.split()[0])
+            max_y = int(size.split()[1])
+            if self.is_positive_integer(max_x) and self.is_positive_integer(max_y):
+                return Plateau(max_x, max_y)
+            else:
+                raise ValueError
 
     def is_positive_integer(self, integer):
         return integer > 0
