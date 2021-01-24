@@ -198,6 +198,25 @@ class TestMarsRover(unittest.TestCase):
         self.assertEqual(expected_x, actual_x)
         self.assertEqual(expected_y, actual_y)
 
+    def test_explore_plateau_by_following_instructions_and_finish_in_correct_position_example_1(self):
+        actual_position = self.mars_rover.explore_plateau_get_final_position()
+        expected_position = [1, 3, 'N']
+        self.assertEqual(expected_position, actual_position)
+
+    def test_explore_plateau_example_1_with_2nd_mars_rover_on_plateau(self):
+        mars_rover_2 = MarsRover(start_x=3, start_y=3, start_heading='E', instructions='MMRMMRMRRM',
+                                 plateau=self.plateau)
+        actual_position = self.mars_rover.explore_plateau_get_final_position()
+        expected_position = [1, 3, 'N']
+        self.assertEqual(expected_position, actual_position)
+
+    def test_explore_plateau_by_following_instructions_and_finish_in_correct_position_example_2(self):
+        mars_rover_2 = MarsRover(start_x=3, start_y=3, start_heading='E', instructions='MMRMMRMRRM',
+                                 plateau=self.plateau)
+        actual_position = mars_rover_2.explore_plateau_get_final_position
+        expected_position = [5, 1, 'E']
+        self.assertEqual(expected_position, actual_position)
+
 
 if __name__ == '__main__':
     unittest.main()
