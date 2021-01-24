@@ -213,7 +213,7 @@ class TestMarsRover(unittest.TestCase):
     def test_explore_plateau_by_following_instructions_and_finish_in_correct_position_example_2(self):
         mars_rover_2 = MarsRover(start_x=3, start_y=3, start_heading='E', instructions='MMRMMRMRRM',
                                  plateau=self.plateau)
-        actual_position = mars_rover_2.explore_plateau_get_final_position
+        actual_position = mars_rover_2.explore_plateau_get_final_position()
         expected_position = [5, 1, 'E']
         self.assertEqual(expected_position, actual_position)
 
