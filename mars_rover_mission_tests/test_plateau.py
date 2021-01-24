@@ -17,4 +17,4 @@ class TestPlateau(unittest.TestCase):
 
     def test_add_invalid_position_to_currently_occupied_positions_returns_false(self):
         plateau = Plateau(5, 5)
-        self.assertFalse(plateau.currently_occupied_positions(3, 6))
+        self.assertFalse(plateau.currently_occupied_positions.append(3, 6))
