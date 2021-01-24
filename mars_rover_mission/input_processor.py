@@ -29,6 +29,12 @@ class InputProcessor:
             raise ValueError
         return x, y, heading
 
+    def validate_instructions(self, instructs):
+        for letter in instructs:
+            if letter not in ['L', 'R', 'M']:
+                raise ValueError
+        return True
+
     def is_positive_integer(self, integer):
         return integer > 0
 
