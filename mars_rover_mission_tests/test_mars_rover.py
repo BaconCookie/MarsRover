@@ -8,5 +8,8 @@ class TestMarsRover(unittest.TestCase):
     def setUp(self):
         self.mars_rover = MarsRover()
 
+    def tearDown(self):
+        self.mars_rover = None
+
     def test_mars_rover_exists(self):
         self.assertIsInstance(self.mars_rover, MarsRover, "MarsRover class is missing or initiated incorrectly")
