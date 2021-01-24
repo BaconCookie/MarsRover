@@ -24,16 +24,24 @@ class TestPlateau(unittest.TestCase):
         self.assertTrue(Plateau(0, 0))
 
     def test_plateau_size_cannot_be_invalid_negavtive_x(self):
-        self.assertRaises(ValueError, Plateau(-1, 0))
+        x = -1
+        y = 5
+        self.failUnlessRaises(ValueError, Plateau, x, y)
 
     def test_plateau_size_cannot_be_invalid_negavtive_y(self):
-        self.assertRaises(ValueError, Plateau(0, -3))
+        x = 1
+        y = -5
+        self.failUnlessRaises(ValueError, Plateau, x, y)
 
     def test_plateau_size_cannot_be_invalid_negavtive_x_and_y(self):
-        self.assertRaises(ValueError, Plateau(-4, -2))
+        x = -2
+        y = -3
+        self.failUnlessRaises(ValueError, Plateau, x, y)
 
     def test_plateau_size_cannot_be_invalid_floats(self):
-        self.assertRaises(ValueError, Plateau(0.5, 3.7))
+        x = 0.5
+        y = 3.7
+        self.failUnlessRaises(ValueError, Plateau, x, y)
 
     def test_add_valid_position_to_currently_occupied_positions(self):
         self.plateau.add_to_currently_occupied_positions(3, 3)
