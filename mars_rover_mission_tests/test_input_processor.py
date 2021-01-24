@@ -79,8 +79,8 @@ class TestInputProcessor(unittest.TestCase):
         valid_instructions4 = 'M'
         valid_instructions5 = 'LRM'
         valid_instructions6 = 'LMRRMLLLMMMRR'
-        valid_instructions7 = 'LMLMLMLMM'
-        valid_instructions8 = 'MMRMMRMRRM'
+        valid_instructions7 = 'LMLMLMLMM '
+        valid_instructions8 = 'MMRMMRMRRM\n'
         self.assertTrue(self.input_processor.validate_instructions(valid_instructions1))
         self.assertTrue(self.input_processor.validate_instructions(valid_instructions2))
         self.assertTrue(self.input_processor.validate_instructions(valid_instructions3))
