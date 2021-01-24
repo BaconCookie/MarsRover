@@ -11,6 +11,10 @@ class TestInputProcessor(unittest.TestCase):
     def tearDown(self):
         self.input_processor = None
 
+    def test_mars_rover_exists(self):
+        self.assertIsInstance(self.input_processor, InputProcessor,
+                              "InputProcessor class is missing or initiated incorrectly")
+
     def test_init_plateau_with_positive_integers(self):
         pass
 
