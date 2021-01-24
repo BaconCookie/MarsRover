@@ -1,6 +1,7 @@
 import unittest
 
 from mars_rover_mission.input_processor import InputProcessor
+from mars_rover_mission.plateau import Plateau
 
 
 class TestInputProcessor(unittest.TestCase):
@@ -16,7 +17,9 @@ class TestInputProcessor(unittest.TestCase):
                               "InputProcessor class is missing or initiated incorrectly")
 
     def test_init_plateau_with_positive_integers(self):
-        pass
+        expected_plateau = Plateau(5, 5)
+        actual_plateau = self.input_processor.init_plateau('5 5')
+        self.assertEqual(expected_plateau, actual_plateau)
 
     def test_cannot_init_plateau_with_neg_integer_x(self):
         pass
@@ -34,6 +37,10 @@ class TestInputProcessor(unittest.TestCase):
         pass
 
     def test_cannot_init_plateau_with_floats_x_and_y(self):
+        pass
+
+    def test_cannot_init_plateau_with_incorrect_format(self):
+        # correct format is a string of two integers separated by a space
         pass
 
     def test_validate_and_get_startposition(self):
