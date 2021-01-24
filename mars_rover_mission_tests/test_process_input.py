@@ -1,7 +1,15 @@
 import unittest
 
+from mars_rover_mission.process_input import ProcessInput
+
 
 class TestProcessInput(unittest.TestCase):
+
+    def setUp(self):
+        self.input_processor = ProcessInput()
+
+    def tearDown(self):
+        self.input_processor = None
 
     def test_init_plateau_with_positive_integers(self):
         pass
@@ -32,7 +40,7 @@ class TestProcessInput(unittest.TestCase):
 
     def test_heading_is_valid(self):
         valid_heading = 'N'
-        # self.assertTrue()
+        self.assertTrue()
 
     def test_invalid_heading_returns_false(self):
         invalid_heading = 'X'
