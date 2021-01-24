@@ -7,10 +7,12 @@ from mars_rover_mission.plateau import Plateau
 class TestMarsRover(unittest.TestCase):
 
     def setUp(self):
+        self.plateau = Plateau(5, 5)
         self.mars_rover = MarsRover(start_x=1, start_y=2, start_heading='N', instructions='LMLMLMLMM',
-                                    plateau=Plateau(5, 5))
+                                    plateau=self.plateau)
 
     def tearDown(self):
+        self.plateau = None
         self.mars_rover = None
 
     def test_mars_rover_exists(self):
