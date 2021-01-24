@@ -17,8 +17,21 @@ class InputProcessor:
             else:
                 raise ValueError
 
+    def get_startposition(self, start_position):
+        x, y, heading = start_position.split()
+        if not self.is_zero_or_positive_integer(int(x)):
+            raise ValueError
+        if not self.is_zero_or_positive_integer(int(y)):
+            raise ValueError
+        if not self.is_valid_heading(heading):
+            raise ValueError
+        return x, y, heading
+
     def is_positive_integer(self, integer):
         return integer > 0
+
+    def is_zero_or_positive_integer(self, integer):
+        return integer >= 0
 
     def is_valid_heading(self, heading):
         return heading in ['N', 'E', 'S', 'W']
