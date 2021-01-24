@@ -55,11 +55,17 @@ class TestInputProcessor(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.input_processor.init_plateau('5 5 5')
 
-    def test_validate_and_get_startposition(self):
-        pass
+    def test_get_startposition(self):
+        expected_x = 1
+        expected_y = 2
+        expected_heading = 'N'
+        actual_x, actual_y, actual_heading = self.input_processor.get_startposition('1 2 N')
+        print(type(expected_x))
+        print(type(actual_x))
+        self.assertEqual(expected_x, actual_x)
+        self.assertEqual(expected_y, actual_y)
+        self.assertEqual(expected_heading, actual_heading)
 
-    # def test_startposition_is_valid(self):
-    #     pass
 
     def test_heading_is_valid(self):
         valid_heading = 'N'
