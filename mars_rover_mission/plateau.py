@@ -1,9 +1,12 @@
 class Plateau:
 
     def __init__(self, x, y):
-        self.max_x = x
-        self.max_y = y
-        self.currently_occupied_positions = []
+        if self.coordinates_are_positive_ints_or_zero(x, y):
+            self.max_x = x
+            self.max_y = y
+            self.currently_occupied_positions = []
+        else:
+            raise ValueError('Plateau coordinates invalid')
 
     def add_to_currently_occupied_positions(self, new_x, new_y):
         if self.is_valid_position(new_x, new_y):
@@ -21,13 +24,16 @@ class Plateau:
             return False
 
     def is_valid_position(self, x, y):
-        if isinstance(x, int) and isinstance(y, int):
+        if self.coordinates_are_positive_ints_or_zero(x, y):
             return self.is_on_plateau(x, y) and self.causes_no_collision(x, y)
         else:
             return False
 
+    def coordinates_are_positive_ints_or_zero(self, x, y):
+        return isinstance(x, int) and isinstance(y, int) and x >= 0 and y >= 0
+
     def is_on_plateau(self, x, y):
-        return 0 <= x <= self.max_x and 0 <= y <= self.max_y and (self.max_x >= 1 or self.max_y >= 1)
+        return x <= self.max_x and y <= self.max_y
 
     def causes_no_collision(self, x, y):
         return [x, y] not in self.currently_occupied_positions
