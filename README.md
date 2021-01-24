@@ -12,10 +12,10 @@ The input is expected to be in a very particular shape, as given in the assignme
 You may use input_example.txt. It is important to conclude the instructions with a newline (or 'ENTER' or 'f').
 
 ### Running tests
-Run ```python -m unittest test_plateau.TestPlateau``` in /MarsRoverCodingChallenge/mars_rover_mission_tests
+Run ```python -m unittest mars_rover_mission_tests.test_plateau.TestPlateau``` in /MarsRoverCodingChallenge/
 
-Run ```python -m unittest test_mars_rover.TestMarsRover ``` in /MarsRoverCodingChallenge/mars_rover_mission_tests
+Run ```python -m unittest mars_rover_mission_tests.test_mars_rover.TestMarsRover``` in /MarsRoverCodingChallenge/
 
-Run ```python -m unittest test_input_processor.TestInputProcessor``` in /MarsRoverCodingChallenge/mars_rover_mission_tests
+Run ```python -m unittest mars_rover_mission_tests.test_input_processor.TestInputProcessor``` in /MarsRoverCodingChallenge/
 
 
