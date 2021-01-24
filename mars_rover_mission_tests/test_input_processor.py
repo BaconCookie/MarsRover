@@ -79,12 +79,16 @@ class TestInputProcessor(unittest.TestCase):
         valid_instructions4 = 'M'
         valid_instructions5 = 'LRM'
         valid_instructions6 = 'LMRRMLLLMMMRR'
+        valid_instructions7 = 'LMLMLMLMM'
+        valid_instructions8 = 'MMRMMRMRRM'
         self.assertTrue(self.input_processor.validate_instructions(valid_instructions1))
         self.assertTrue(self.input_processor.validate_instructions(valid_instructions2))
         self.assertTrue(self.input_processor.validate_instructions(valid_instructions3))
         self.assertTrue(self.input_processor.validate_instructions(valid_instructions4))
         self.assertTrue(self.input_processor.validate_instructions(valid_instructions5))
         self.assertTrue(self.input_processor.validate_instructions(valid_instructions6))
+        self.assertTrue(self.input_processor.validate_instructions(valid_instructions7))
+        self.assertTrue(self.input_processor.validate_instructions(valid_instructions8))
 
     def test_invalid_instructions_raise_value_error(self):
         invalid_instructions1 = 'X'
