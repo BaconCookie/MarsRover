@@ -21,3 +21,12 @@ class TestPlateau(unittest.TestCase):
 
     def test_add_invalid_position_to_currently_occupied_positions_returns_false(self):
         self.assertFalse(self.plateau.add_to_currently_occupied_positions(3, 6))
+
+    def test_update_currently_occupied_positions_from_valid_to_valid(self):
+        self.plateau.add_to_currently_occupied_positions(3, 3)  # valid 'from' position
+        # self.assertTrue()
+
+    def test_update_currently_occupied_positions_from_valid_to_invalid(self):
+        self.plateau.add_to_currently_occupied_positions(3, 3)  # valid 'from' position
+        self.plateau.add_to_currently_occupied_positions(3, 4)  # occupy the 'to' position and thereby making it invalid
+        # self.assertFalse()
