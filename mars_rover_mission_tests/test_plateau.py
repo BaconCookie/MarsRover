@@ -19,8 +19,33 @@ class TestPlateau(unittest.TestCase):
         expected = [[3, 3]]
         self.assertEqual(self.plateau.currently_occupied_positions, expected)
 
-    def test_add_invalid_position_to_currently_occupied_positions_returns_false(self):
+    def test_add_valid_position_on_bottom_left_corner_to_currently_occupied_positions(self):
+        self.assertTrue(self.plateau.add_to_currently_occupied_positions(0, 0))
+        expected = [[0, 0]]
+        self.assertEqual(self.plateau.currently_occupied_positions, expected)
+
+    def test_add_valid_position_on_top_right_corner_to_currently_occupied_positions(self):
+        self.assertTrue(self.plateau.add_to_currently_occupied_positions(5, 5))
+        expected = [[5, 5]]
+        self.assertEqual(self.plateau.currently_occupied_positions, expected)
+
+    def test_add_invalid_too_large_x_position_to_currently_occupied_positions_returns_false(self):
+        self.assertFalse(self.plateau.add_to_currently_occupied_positions(6, 3))
+
+    def test_add_invalid_too_large_y_position_to_currently_occupied_positions_returns_false(self):
         self.assertFalse(self.plateau.add_to_currently_occupied_positions(3, 6))
+
+    def test_add_invalid_too_large_x_and_y_position_to_currently_occupied_positions_returns_false(self):
+        self.assertFalse(self.plateau.add_to_currently_occupied_positions(6, 6))
+
+    def test_add_invalid_negative_x_position_to_currently_occupied_positions_returns_false(self):
+        self.assertFalse(self.plateau.add_to_currently_occupied_positions(-1, 3))
+
+    def test_add_invalid_negative_y_position_to_currently_occupied_positions_returns_false(self):
+        self.assertFalse(self.plateau.add_to_currently_occupied_positions(3, -1))
+
+    def test_add_invalid_negative_x_and_y_position_to_currently_occupied_positions_returns_false(self):
+        self.assertFalse(self.plateau.add_to_currently_occupied_positions(-1, -6))
 
     def test_update_currently_occupied_positions_from_valid_to_valid(self):
         start_x = 3
@@ -30,7 +55,7 @@ class TestPlateau(unittest.TestCase):
         new_y = 4
         self.assertTrue(self.plateau.update_currently_occupied_positions(start_x, start_y, new_x, new_y))
 
-    def test_update_currently_occupied_positions_from_valid_to_invalid(self):
+    def test_update_currently_occupied_positions_from_valid_to_invalid_because_occupied(self):
         start_x = 3
         start_y = 3
         self.plateau.add_to_currently_occupied_positions(start_x, start_y)  # valid 'from' position
@@ -40,3 +65,10 @@ class TestPlateau(unittest.TestCase):
         self.plateau.add_to_currently_occupied_positions(new_x, new_y)
         self.assertFalse(self.plateau.update_currently_occupied_positions(start_x, start_y, new_x, new_y))
 
+    def test_update_currently_occupied_positions_from_valid_to_invalid_because_not_on_plateau(self):
+        start_x = 5
+        start_y = 5
+        self.plateau.add_to_currently_occupied_positions(start_x, start_y)  # valid 'from' position
+        new_x = 5
+        new_y = 6  # value is outside of plateau
+        self.assertFalse(self.plateau.update_currently_occupied_positions(start_x, start_y, new_x, new_y))
