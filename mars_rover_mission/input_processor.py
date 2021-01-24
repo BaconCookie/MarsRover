@@ -19,9 +19,11 @@ class InputProcessor:
 
     def get_startposition(self, start_position):
         x, y, heading = start_position.split()
-        if not self.is_zero_or_positive_integer(int(x)):
+        x = int(x)
+        y = int(y)
+        if not self.is_zero_or_positive_integer(x):
             raise ValueError
-        if not self.is_zero_or_positive_integer(int(y)):
+        if not self.is_zero_or_positive_integer(y):
             raise ValueError
         if not self.is_valid_heading(heading):
             raise ValueError
