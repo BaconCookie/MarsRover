@@ -44,11 +44,11 @@ class TestInputProcessor(unittest.TestCase):
 
     def test_heading_is_valid(self):
         valid_heading = 'N'
-        self.assertTrue()
+        self.assertTrue(valid_heading)
 
     def test_invalid_heading_returns_false(self):
         invalid_heading = 'X'
-        # self.assertFalse()
+        self.assertFalse(invalid_heading)
 
     def test_startposition_invalid_already_occupied(self):
         pass
