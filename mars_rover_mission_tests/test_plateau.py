@@ -118,3 +118,7 @@ class TestPlateau(unittest.TestCase):
         new_x = 5
         new_y = 4.5  # float values are not valid plateau coordinates
         self.assertFalse(self.plateau.update_currently_occupied_positions(start_x, start_y, new_x, new_y))
+
+
+if __name__ == '__main__':
+    unittest.main()

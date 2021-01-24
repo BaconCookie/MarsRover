@@ -15,3 +15,7 @@ class TestMarsRover(unittest.TestCase):
 
     def test_mars_rover_exists(self):
         self.assertIsInstance(self.mars_rover, MarsRover, "MarsRover class is missing or initiated incorrectly")
+
+
+if __name__ == '__main__':
+    unittest.main()
