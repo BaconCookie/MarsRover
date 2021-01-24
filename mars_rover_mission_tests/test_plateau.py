@@ -29,13 +29,13 @@ class TestPlateau(unittest.TestCase):
         with self.assertRaises(ValueError):
             Plateau(x, y)
 
-    def test_plateau_size_cannot_be_invalid_negavtive_y(self):
+    def test_plateau_size_cannot_be_invalid_negative_y(self):
         x = 1
         y = -5
         with self.assertRaises(ValueError):
             Plateau(x, y)
 
-    def test_plateau_size_cannot_be_invalid_negavtive_x_and_y(self):
+    def test_plateau_size_cannot_be_invalid_negative_x_and_y(self):
         x = -2
         y = -3
         with self.assertRaises(ValueError):
