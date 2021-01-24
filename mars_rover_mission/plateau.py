@@ -12,6 +12,14 @@ class Plateau:
         else:
             return False
 
+    def update_currently_occupied_positions(self, old_x, old_y, new_x, new_y):
+        if [old_x, old_y] in self.currently_occupied_positions and self.is_valid_position(new_x, new_y):
+            self.currently_occupied_positions.remove([old_x, old_y])
+            self.currently_occupied_positions.append([new_x, new_y])
+            return True
+        else:
+            return False
+
     def is_valid_position(self, x, y):
         return self.is_on_plateau(x, y) and self.causes_no_collision(x, y)
 
