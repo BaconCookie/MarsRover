@@ -47,6 +47,15 @@ class TestPlateau(unittest.TestCase):
     def test_add_invalid_negative_x_and_y_position_to_currently_occupied_positions_returns_false(self):
         self.assertFalse(self.plateau.add_to_currently_occupied_positions(-1, -6))
 
+    def test_add_invalid_float_x_position_to_currently_occupied_positions_returns_false(self):
+        self.assertFalse(self.plateau.add_to_currently_occupied_positions(0.5, 3))
+
+    def test_add_invalid_float_y_position_to_currently_occupied_positions_returns_false(self):
+        self.assertFalse(self.plateau.add_to_currently_occupied_positions(3, 1.7))
+
+    def test_add_invalid_float_x_and_y_position_to_currently_occupied_positions_returns_false(self):
+        self.assertFalse(self.plateau.add_to_currently_occupied_positions(3.3, 4.4))
+
     def test_update_currently_occupied_positions_from_valid_to_valid(self):
         start_x = 3
         start_y = 3
@@ -71,4 +80,12 @@ class TestPlateau(unittest.TestCase):
         self.plateau.add_to_currently_occupied_positions(start_x, start_y)  # valid 'from' position
         new_x = 5
         new_y = 6  # value is outside of plateau
+        self.assertFalse(self.plateau.update_currently_occupied_positions(start_x, start_y, new_x, new_y))
+
+    def test_update_currently_occupied_positions_from_valid_to_invalid_because_float(self):
+        start_x = 5
+        start_y = 5
+        self.plateau.add_to_currently_occupied_positions(start_x, start_y)  # valid 'from' position
+        new_x = 5
+        new_y = 4.5  # float values are not valid plateau coordinates
         self.assertFalse(self.plateau.update_currently_occupied_positions(start_x, start_y, new_x, new_y))
