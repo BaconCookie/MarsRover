@@ -1,4 +1,4 @@
-# MIA Coding Challenge
+# Coding Challenge
 
 ## Mars Rover
 
